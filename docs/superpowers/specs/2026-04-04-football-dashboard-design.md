@@ -264,6 +264,8 @@ All hooks: `refetchIntervalInBackground: false`
 - `src/shared/__tests__/formatMinute.test.ts` — formatting, edge cases
 - Hooks tested with `@testing-library/react` `renderHook` + QueryClient wrapper
 - MSW handlers reused from `src/mocks/`
+- Coverage enforced with Vitest V8 coverage thresholds: `lines`, `statements`, `functions`, and `branches` all `>= 90%`
+- Coverage command: `vitest run --coverage`
 
 ### Playwright — E2E Tests
 - `e2e/sidebar.spec.ts` — sidebar loads, filters work, match click navigates
@@ -292,6 +294,7 @@ All hooks: `refetchIntervalInBackground: false`
 - `build` — `tsc && vite build`
 - `preview` — `vite preview`
 - `test` — `vitest`
+- `test:coverage` — `vitest run --coverage`
 - `test:e2e` — `playwright test`
 - `lint` — `eslint .`
 
@@ -317,3 +320,4 @@ All hooks: `refetchIntervalInBackground: false`
 | AC-08 | Strict TypeScript, no `any`, `tsc --noEmit` in build script |
 | AC-09 | Sidebar auto-collapses at 1280px viewport |
 | AC-10 | Vercel static deployment with env vars |
+| AC-11 | Vitest coverage thresholds enforce at least 90% across lines, statements, functions, and branches |
