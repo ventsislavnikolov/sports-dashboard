@@ -3,7 +3,16 @@ import { renderHook, waitFor } from "@testing-library/react";
 import { HttpResponse, http } from "msw";
 import { setupServer } from "msw/node";
 import type { ReactNode } from "react";
-import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
+import {
+  afterAll,
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi,
+} from "vitest";
 import liveFixturesData from "@/mocks/fixtures/live-fixtures.json";
 import { useLiveFixtures } from "../useLiveFixtures";
 
@@ -17,7 +26,13 @@ beforeAll(() => {
   server.listen();
 });
 
+beforeEach(() => {
+  vi.stubEnv("VITE_API_FOOTBALL_KEY", "test-key-123");
+  vi.stubEnv("VITE_API_BASE_URL", "https://v3.football.api-sports.io");
+});
+
 afterEach(() => {
+  vi.unstubAllEnvs();
   server.resetHandlers();
 });
 

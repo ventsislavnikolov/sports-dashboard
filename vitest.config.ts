@@ -11,18 +11,18 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
     globals: true,
-    exclude: ["**/node_modules/**", "e2e/**"],
-  },
-  coverage: {
-    provider: "v8",
-    reporter: ["text", "html"],
-    all: false,
-    exclude: ["src/mocks/**", "src/test/**", "**/*.d.ts"],
-    thresholds: {
-      lines: 90,
-      statements: 90,
-      functions: 90,
-      branches: 90,
+    include: ["src/**/*.{test,spec}.{ts,tsx}"],
+    exclude: ["**/node_modules/**", "**/.worktrees/**", "**/e2e/**"],
+    coverage: {
+      provider: "v8",
+      reporter: ["text", "html"],
+      exclude: ["src/mocks/**", "src/test/**", "**/*.d.ts"],
+      thresholds: {
+        lines: 90,
+        statements: 90,
+        functions: 90,
+        branches: 90,
+      },
     },
   },
 });

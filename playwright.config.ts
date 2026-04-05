@@ -5,12 +5,12 @@ export default defineConfig({
   fullyParallel: true,
   retries: 0,
   use: {
-    baseURL: "http://localhost:5173",
+    baseURL: "http://127.0.0.1:3000",
     viewport: { width: 1280, height: 720 },
   },
   webServer: {
-    command: "npm run dev",
-    port: 5173,
+    command: "pnpm dev --host 127.0.0.1",
+    port: 3000,
     reuseExistingServer: true,
     env: {
       VITE_USE_MOCKS: "true",
