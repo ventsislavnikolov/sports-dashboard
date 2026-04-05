@@ -28,7 +28,7 @@ export function Sidebar() {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= COLLAPSE_BREAKPOINT) {
+      if (window.innerWidth < COLLAPSE_BREAKPOINT) {
         setCollapsed(true);
       }
     };
