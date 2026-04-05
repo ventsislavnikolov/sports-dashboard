@@ -112,6 +112,7 @@ Create `package.json`:
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest",
+    "test:coverage": "vitest run --coverage",
     "test:e2e": "playwright test",
     "lint": "eslint ."
   }
@@ -122,7 +123,7 @@ Create `package.json`:
 
 ```bash
 npm install react@19 react-dom@19 @tanstack/react-router @tanstack/react-query @tanstack/store @tanstack/react-store recharts
-npm install -D vite @vitejs/plugin-react @tanstack/router-plugin tailwindcss @tailwindcss/vite typescript @types/react @types/react-dom eslint @eslint/js typescript-eslint eslint-plugin-react-hooks eslint-plugin-react-refresh vitest @testing-library/react @testing-library/jest-dom jsdom msw @playwright/test
+npm install -D vite @vitejs/plugin-react @tanstack/router-plugin tailwindcss @tailwindcss/vite typescript @types/react @types/react-dom eslint @eslint/js typescript-eslint eslint-plugin-react-hooks eslint-plugin-react-refresh vitest @vitest/coverage-v8 @testing-library/react @testing-library/jest-dom jsdom msw @playwright/test
 ```
 
 - [ ] **Step 3: Create TypeScript configs**
@@ -527,6 +528,16 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: [],
     globals: true,
+  },
+  coverage: {
+    provider: "v8",
+    reporter: ["text", "html"],
+    thresholds: {
+      lines: 90,
+      statements: 90,
+      functions: 90,
+      branches: 90,
+    },
   },
 });
 ```
@@ -1794,6 +1805,16 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
     globals: true,
+  },
+  coverage: {
+    provider: "v8",
+    reporter: ["text", "html"],
+    thresholds: {
+      lines: 90,
+      statements: 90,
+      functions: 90,
+      branches: 90,
+    },
   },
 });
 ```
@@ -3220,7 +3241,15 @@ npx vitest run
 
 Expected: all tests PASS.
 
-- [ ] **Step 2: Run TypeScript strict check**
+- [ ] **Step 2: Run coverage verification**
+
+```bash
+npm run test:coverage
+```
+
+Expected: Vitest coverage passes with `lines`, `statements`, `functions`, and `branches` all at or above 90%.
+
+- [ ] **Step 3: Run TypeScript strict check**
 
 ```bash
 npx tsc --noEmit
@@ -3228,7 +3257,7 @@ npx tsc --noEmit
 
 Expected: no errors (AC-08).
 
-- [ ] **Step 3: Run ESLint**
+- [ ] **Step 4: Run ESLint**
 
 ```bash
 npx eslint .
@@ -3236,7 +3265,7 @@ npx eslint .
 
 Expected: no errors.
 
-- [ ] **Step 4: Run production build**
+- [ ] **Step 5: Run production build**
 
 ```bash
 npm run build
@@ -3244,7 +3273,7 @@ npm run build
 
 Expected: `tsc -b && vite build` succeeds, output in `dist/`.
 
-- [ ] **Step 5: Preview production build**
+- [ ] **Step 6: Preview production build**
 
 ```bash
 npx vite preview
@@ -3252,7 +3281,7 @@ npx vite preview
 
 Open the preview URL and verify the app loads correctly.
 
-- [ ] **Step 6: Run E2E tests one final time**
+- [ ] **Step 7: Run E2E tests one final time**
 
 ```bash
 npx playwright test
@@ -3260,7 +3289,7 @@ npx playwright test
 
 Expected: all tests PASS.
 
-- [ ] **Step 7: Commit any remaining changes**
+- [ ] **Step 8: Commit any remaining changes**
 
 ```bash
 git status
