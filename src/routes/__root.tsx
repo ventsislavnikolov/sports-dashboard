@@ -1,4 +1,5 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
+import { Sidebar } from "@/features/sidebar/Sidebar";
 
 export const Route = createRootRoute({
   component: RootLayout,
@@ -7,12 +8,7 @@ export const Route = createRootRoute({
 function RootLayout() {
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* Sidebar placeholder — replaced in Task 12 */}
-      <aside className="w-[260px] min-w-[260px] bg-bg-surface border-r border-bg-hover overflow-y-auto">
-        <div className="p-4 text-text-muted text-xs">Sidebar</div>
-      </aside>
-
-      {/* Main content area */}
+      <Sidebar />
       <main className="flex-1 flex flex-col overflow-hidden">
         <Outlet />
       </main>
