@@ -24,6 +24,8 @@
     "@tailwindcss/vite": "^4.2.2",
     "@tanstack/react-query": "^5.96.2",
     "@tanstack/react-router": "^1.168.10",
+    "@tanstack/react-store": "^0.9.3",
+    "@tanstack/store": "^0.9.3",
     "axios": "^1.14.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -33,6 +35,7 @@
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-hook-form": "^7.72.1",
+    "recharts": "^3.8.1",
     "shadcn": "^4.1.2",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.5.0",
@@ -54,6 +57,8 @@
     "@semantic-release/npm": "^13.1.5",
     "@semantic-release/release-notes-generator": "^14.1.0",
     "@tanstack/router-plugin": "^1.167.12",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
     "@types/node": "^25.5.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
@@ -64,6 +69,8 @@
     "dotenv": "^17.4.0",
     "dotenv-cli": "^11.0.0",
     "husky": "^9.1.7",
+    "jsdom": "^26.1.0",
+    "msw": "^2.10.2",
     "semantic-release": "^25.0.3",
     "semantic-release-ado": "^1.4.0",
     "typescript": "^6.0.2",
@@ -71,5 +78,10 @@
     "vite": "^8.0.3",
     "vite-tsconfig-paths": "^6.1.1",
     "vitest": "^4.1.2"
+  },
+  "msw": {
+    "workerDirectory": [
+      "public"
+    ]
   }
 }

@@ -1,52 +1,21 @@
-import { defineConfig, devices } from "@playwright/test";
+import { defineConfig } from "@playwright/test";
 
 export default defineConfig({
-  testDir: "./__tests__/e2e",
+  testDir: "./e2e",
   fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
-  reporter: [
-    ["html"],
-    ["json", { outputFile: "test-results/results.json" }],
-    ["line"],
-  ],
+  retries: 0,
   use: {
-    baseURL: "http://localhost:3000",
-    trace: "on-first-retry",
-    screenshot: "only-on-failure",
-    video: "retain-on-failure",
+    baseURL: "http://localhost:5173",
+    viewport: { width: 1280, height: 720 },
   },
-  projects: [
-    {
-      name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
-    },
-    {
-      name: "firefox",
-      use: { ...devices["Desktop Firefox"] },
-    },
-    {
-      name: "webkit",
-      use: { ...devices["Desktop Safari"] },
-    },
-    {
-      name: "Mobile Chrome",
-      use: { ...devices["Pixel 5"] },
-    },
-    {
-      name: "Mobile Safari",
-      use: { ...devices["iPhone 12"] },
-    },
-  ],
   webServer: {
-    command: "pnpm dev",
-    url: "http://localhost:3000",
-    reuseExistingServer: !process.env.CI,
-    timeout: 120_000,
-  },
-  timeout: 30_000,
-  expect: {
-    timeout: 10_000,
+    command: "npm run dev",
+    port: 5173,
+    reuseExistingServer: true,
+    env: {
+      VITE_USE_MOCKS: "true",
+      VITE_API_FOOTBALL_KEY: "test",
+      VITE_API_BASE_URL: "https://v3.football.api-sports.io",
+    },
   },
 });

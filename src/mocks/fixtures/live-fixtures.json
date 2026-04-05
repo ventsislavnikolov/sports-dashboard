@@ -1,0 +1,49 @@
+{
+  "get": "fixtures",
+  "results": 3,
+  "errors": {},
+  "response": [
+    {
+      "fixture": {
+        "id": 1001,
+        "status": { "elapsed": 70, "short": "2H", "long": "Second Half" },
+        "venue": { "name": "Anfield", "city": "Liverpool" }
+      },
+      "league": { "id": 39, "name": "Premier League", "country": "England", "logo": "https://media.api-sports.io/football/leagues/39.png" },
+      "teams": {
+        "home": { "id": 40, "name": "Liverpool", "logo": "https://media.api-sports.io/football/teams/40.png", "winner": true },
+        "away": { "id": 47, "name": "Tottenham", "logo": "https://media.api-sports.io/football/teams/47.png", "winner": false }
+      },
+      "goals": { "home": 1, "away": 0 },
+      "score": { "halftime": { "home": 1, "away": 0 }, "fulltime": { "home": null, "away": null } }
+    },
+    {
+      "fixture": {
+        "id": 1002,
+        "status": { "elapsed": 45, "short": "HT", "long": "Halftime" },
+        "venue": { "name": "Emirates Stadium", "city": "London" }
+      },
+      "league": { "id": 39, "name": "Premier League", "country": "England", "logo": "https://media.api-sports.io/football/leagues/39.png" },
+      "teams": {
+        "home": { "id": 42, "name": "Arsenal", "logo": "https://media.api-sports.io/football/teams/42.png", "winner": null },
+        "away": { "id": 49, "name": "Chelsea", "logo": "https://media.api-sports.io/football/teams/49.png", "winner": null }
+      },
+      "goals": { "home": 2, "away": 2 },
+      "score": { "halftime": { "home": 2, "away": 2 }, "fulltime": { "home": null, "away": null } }
+    },
+    {
+      "fixture": {
+        "id": 1003,
+        "status": { "elapsed": 62, "short": "2H", "long": "Second Half" },
+        "venue": { "name": "Allianz Arena", "city": "Munich" }
+      },
+      "league": { "id": 78, "name": "Bundesliga", "country": "Germany", "logo": "https://media.api-sports.io/football/leagues/78.png" },
+      "teams": {
+        "home": { "id": 157, "name": "Bayern Munich", "logo": "https://media.api-sports.io/football/teams/157.png", "winner": true },
+        "away": { "id": 165, "name": "Borussia Dortmund", "logo": "https://media.api-sports.io/football/teams/165.png", "winner": false }
+      },
+      "goals": { "home": 3, "away": 1 },
+      "score": { "halftime": { "home": 2, "away": 0 }, "fulltime": { "home": null, "away": null } }
+    }
+  ]
+}

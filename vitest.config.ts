@@ -1,20 +1,28 @@
 import { defineConfig } from "vitest/config";
+import { resolve } from "path";
 
 export default defineConfig({
-  test: {
-    globals: true,
-    environment: "jsdom",
-    setupFiles: "./__tests__/setup.ts",
-    include: ["./__tests__/unit/**/*.{test,spec}.{ts,tsx}"],
-    coverage: {
-      provider: "v8",
-      reporter: ["text", "html"],
-      exclude: ["node_modules/"],
-    },
-  },
   resolve: {
     alias: {
-      "@": "/src",
+      "@": resolve(__dirname, "./src"),
+    },
+  },
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./src/test/setup.ts"],
+    globals: true,
+    exclude: ["**/node_modules/**", "e2e/**"],
+  },
+  coverage: {
+    provider: "v8",
+    reporter: ["text", "html"],
+    all: false,
+    exclude: ["src/mocks/**", "src/test/**", "**/*.d.ts"],
+    thresholds: {
+      lines: 90,
+      statements: 90,
+      functions: 90,
+      branches: 90,
     },
   },
 });
