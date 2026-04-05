@@ -8,7 +8,7 @@ export function useFixtureStats() {
 
   const query = useQuery({
     queryKey: ["fixtures", "statistics", fixtureId],
-    queryFn: () => fetchFixtureStats(fixtureId!),
+    queryFn: () => fetchFixtureStats(fixtureId as number),
     enabled: fixtureId !== null,
     refetchInterval: 15_000,
     refetchIntervalInBackground: false,

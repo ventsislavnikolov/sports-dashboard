@@ -61,7 +61,7 @@ export function MatchList({
               {leagueName}
             </div>
           )}
-          {fixturesByLeague[leagueName]!.map((fixture) => (
+          {(fixturesByLeague[leagueName] ?? []).map((fixture) => (
             <MatchItem
               key={fixture.fixture.id}
               fixture={fixture}

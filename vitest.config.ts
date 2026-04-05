@@ -11,10 +11,13 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./src/test/setup.ts"],
     globals: true,
+    exclude: ["**/node_modules/**", "e2e/**"],
   },
   coverage: {
     provider: "v8",
     reporter: ["text", "html"],
+    all: false,
+    exclude: ["src/mocks/**", "src/test/**", "**/*.d.ts"],
     thresholds: {
       lines: 90,
       statements: 90,

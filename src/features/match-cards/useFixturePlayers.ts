@@ -10,7 +10,7 @@ export function useFixturePlayers() {
 
   const query = useQuery({
     queryKey: ["fixtures", "players", fixtureId],
-    queryFn: () => fetchFixturePlayers(fixtureId!),
+    queryFn: () => fetchFixturePlayers(fixtureId as number),
     enabled: fixtureId !== null,
     refetchInterval: 15_000,
     refetchIntervalInBackground: false,
