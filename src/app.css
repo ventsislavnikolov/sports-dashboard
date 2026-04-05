@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-bg-primary: #0d1117;
+  --color-bg-surface: #161b22;
+  --color-bg-hover: #21262d;
+
+  --color-accent-blue: #58a6ff;
+  --color-accent-green: #3fb950;
+  --color-accent-red: #f78166;
+  --color-accent-purple: #b388f8;
+
+  --color-text-primary: #e6edf3;
+  --color-text-muted: #8b949e;
+}
+
+body {
+  @apply bg-bg-primary text-text-primary font-sans;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
