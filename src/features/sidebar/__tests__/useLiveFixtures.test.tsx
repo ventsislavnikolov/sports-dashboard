@@ -1,11 +1,11 @@
-import { describe, it, expect, afterAll, afterEach, beforeAll } from "vitest";
-import { renderHook, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { renderHook, waitFor } from "@testing-library/react";
+import { HttpResponse, http } from "msw";
 import { setupServer } from "msw/node";
-import { http, HttpResponse } from "msw";
-import { type ReactNode } from "react";
-import { useLiveFixtures } from "../useLiveFixtures";
+import type { ReactNode } from "react";
+import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
 import liveFixturesData from "@/mocks/fixtures/live-fixtures.json";
+import { useLiveFixtures } from "../useLiveFixtures";
 
 const server = setupServer(
   http.get("https://v3.football.api-sports.io/fixtures", () => {
@@ -32,9 +32,7 @@ function createWrapper() {
 
   return function Wrapper({ children }: { children: ReactNode }) {
     return (
-      <QueryClientProvider client={queryClient}>
-        {children}
-      </QueryClientProvider>
+      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     );
   };
 }
@@ -60,9 +58,7 @@ describe("useLiveFixtures", () => {
       expect(result.current.leagues.map((l) => l.name)).toContain(
         "Premier League"
       );
-      expect(result.current.leagues.map((l) => l.name)).toContain(
-        "Bundesliga"
-      );
+      expect(result.current.leagues.map((l) => l.name)).toContain("Bundesliga");
     });
   });
 
@@ -75,7 +71,7 @@ describe("useLiveFixtures", () => {
       expect(result.current.fixturesByLeague).toHaveProperty("Premier League");
       expect(result.current.fixturesByLeague["Premier League"]).toHaveLength(2);
       expect(result.current.fixturesByLeague).toHaveProperty("Bundesliga");
-      expect(result.current.fixturesByLeague["Bundesliga"]).toHaveLength(1);
+      expect(result.current.fixturesByLeague.Bundesliga).toHaveLength(1);
     });
   });
 

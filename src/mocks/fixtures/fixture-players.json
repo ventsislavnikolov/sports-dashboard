@@ -4,144 +4,286 @@
   "errors": {},
   "response": [
     {
-      "team": { "id": 40, "name": "Liverpool", "logo": "https://media.api-sports.io/football/teams/40.png", "winner": true },
+      "team": {
+        "id": 40,
+        "name": "Liverpool",
+        "logo": "https://media.api-sports.io/football/teams/40.png",
+        "winner": true
+      },
       "players": [
         {
-          "player": { "id": 301, "name": "Dominik Szoboszlai", "photo": "https://media.api-sports.io/football/players/301.png" },
-          "statistics": [{
-            "games": { "position": "M", "rating": "8.2", "minutes": 70, "captain": false, "number": 8 },
-            "shots": { "total": 3, "on": 2 },
-            "passes": { "total": 61, "accuracy": "89" },
-            "tackles": { "total": 1, "interceptions": 2 },
-            "dribbles": { "attempts": 4, "success": 3 },
-            "fouls": { "drawn": 1, "committed": 0 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 301,
+            "name": "Dominik Szoboszlai",
+            "photo": "https://media.api-sports.io/football/players/301.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "M",
+                "rating": "8.2",
+                "minutes": 70,
+                "captain": false,
+                "number": 8
+              },
+              "shots": { "total": 3, "on": 2 },
+              "passes": { "total": 61, "accuracy": "89" },
+              "tackles": { "total": 1, "interceptions": 2 },
+              "dribbles": { "attempts": 4, "success": 3 },
+              "fouls": { "drawn": 1, "committed": 0 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 302, "name": "Virgil van Dijk", "photo": "https://media.api-sports.io/football/players/302.png" },
-          "statistics": [{
-            "games": { "position": "D", "rating": "7.4", "minutes": 70, "captain": true, "number": 4 },
-            "shots": { "total": 1, "on": 0 },
-            "passes": { "total": 60, "accuracy": "94" },
-            "tackles": { "total": 2, "interceptions": 3 },
-            "dribbles": { "attempts": 0, "success": 0 },
-            "fouls": { "drawn": 0, "committed": 1 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 302,
+            "name": "Virgil van Dijk",
+            "photo": "https://media.api-sports.io/football/players/302.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "D",
+                "rating": "7.4",
+                "minutes": 70,
+                "captain": true,
+                "number": 4
+              },
+              "shots": { "total": 1, "on": 0 },
+              "passes": { "total": 60, "accuracy": "94" },
+              "tackles": { "total": 2, "interceptions": 3 },
+              "dribbles": { "attempts": 0, "success": 0 },
+              "fouls": { "drawn": 0, "committed": 1 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 303, "name": "Andrew Robertson", "photo": "https://media.api-sports.io/football/players/303.png" },
-          "statistics": [{
-            "games": { "position": "D", "rating": "7.1", "minutes": 70, "captain": false, "number": 26 },
-            "shots": { "total": 0, "on": 0 },
-            "passes": { "total": 53, "accuracy": "86" },
-            "tackles": { "total": 1, "interceptions": 1 },
-            "dribbles": { "attempts": 2, "success": 1 },
-            "fouls": { "drawn": 0, "committed": 2 },
-            "cards": { "yellow": 1, "red": 0 }
-          }]
+          "player": {
+            "id": 303,
+            "name": "Andrew Robertson",
+            "photo": "https://media.api-sports.io/football/players/303.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "D",
+                "rating": "7.1",
+                "minutes": 70,
+                "captain": false,
+                "number": 26
+              },
+              "shots": { "total": 0, "on": 0 },
+              "passes": { "total": 53, "accuracy": "86" },
+              "tackles": { "total": 1, "interceptions": 1 },
+              "dribbles": { "attempts": 2, "success": 1 },
+              "fouls": { "drawn": 0, "committed": 2 },
+              "cards": { "yellow": 1, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 304, "name": "Joe Gomez", "photo": "https://media.api-sports.io/football/players/304.png" },
-          "statistics": [{
-            "games": { "position": "D", "rating": "6.8", "minutes": 70, "captain": false, "number": 2 },
-            "shots": { "total": 0, "on": 0 },
-            "passes": { "total": 47, "accuracy": "91" },
-            "tackles": { "total": 1, "interceptions": 1 },
-            "dribbles": { "attempts": 0, "success": 0 },
-            "fouls": { "drawn": 0, "committed": 0 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 304,
+            "name": "Joe Gomez",
+            "photo": "https://media.api-sports.io/football/players/304.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "D",
+                "rating": "6.8",
+                "minutes": 70,
+                "captain": false,
+                "number": 2
+              },
+              "shots": { "total": 0, "on": 0 },
+              "passes": { "total": 47, "accuracy": "91" },
+              "tackles": { "total": 1, "interceptions": 1 },
+              "dribbles": { "attempts": 0, "success": 0 },
+              "fouls": { "drawn": 0, "committed": 0 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 305, "name": "Florian Wirtz", "photo": "https://media.api-sports.io/football/players/305.png" },
-          "statistics": [{
-            "games": { "position": "M", "rating": "7.6", "minutes": 70, "captain": false, "number": 10 },
-            "shots": { "total": 2, "on": 1 },
-            "passes": { "total": 40, "accuracy": "82" },
-            "tackles": { "total": 0, "interceptions": 0 },
-            "dribbles": { "attempts": 7, "success": 5 },
-            "fouls": { "drawn": 3, "committed": 0 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 305,
+            "name": "Florian Wirtz",
+            "photo": "https://media.api-sports.io/football/players/305.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "M",
+                "rating": "7.6",
+                "minutes": 70,
+                "captain": false,
+                "number": 10
+              },
+              "shots": { "total": 2, "on": 1 },
+              "passes": { "total": 40, "accuracy": "82" },
+              "tackles": { "total": 0, "interceptions": 0 },
+              "dribbles": { "attempts": 7, "success": 5 },
+              "fouls": { "drawn": 3, "committed": 0 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 306, "name": "Rio Ngumoha", "photo": "https://media.api-sports.io/football/players/306.png" },
-          "statistics": [{
-            "games": { "position": "F", "rating": "7.8", "minutes": 70, "captain": false, "number": 77 },
-            "shots": { "total": 1, "on": 1 },
-            "passes": { "total": 22, "accuracy": "78" },
-            "tackles": { "total": 0, "interceptions": 0 },
-            "dribbles": { "attempts": 8, "success": 6 },
-            "fouls": { "drawn": 2, "committed": 1 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 306,
+            "name": "Rio Ngumoha",
+            "photo": "https://media.api-sports.io/football/players/306.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "F",
+                "rating": "7.8",
+                "minutes": 70,
+                "captain": false,
+                "number": 77
+              },
+              "shots": { "total": 1, "on": 1 },
+              "passes": { "total": 22, "accuracy": "78" },
+              "tackles": { "total": 0, "interceptions": 0 },
+              "dribbles": { "attempts": 8, "success": 6 },
+              "fouls": { "drawn": 2, "committed": 1 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         }
       ]
     },
     {
-      "team": { "id": 47, "name": "Tottenham", "logo": "https://media.api-sports.io/football/teams/47.png", "winner": false },
+      "team": {
+        "id": 47,
+        "name": "Tottenham",
+        "logo": "https://media.api-sports.io/football/teams/47.png",
+        "winner": false
+      },
       "players": [
         {
-          "player": { "id": 401, "name": "Ryan Gravenberch", "photo": "https://media.api-sports.io/football/players/401.png" },
-          "statistics": [{
-            "games": { "position": "M", "rating": "6.5", "minutes": 70, "captain": false, "number": 6 },
-            "shots": { "total": 0, "on": 0 },
-            "passes": { "total": 35, "accuracy": "80" },
-            "tackles": { "total": 3, "interceptions": 1 },
-            "dribbles": { "attempts": 1, "success": 0 },
-            "fouls": { "drawn": 0, "committed": 2 },
-            "cards": { "yellow": 1, "red": 0 }
-          }]
+          "player": {
+            "id": 401,
+            "name": "Ryan Gravenberch",
+            "photo": "https://media.api-sports.io/football/players/401.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "M",
+                "rating": "6.5",
+                "minutes": 70,
+                "captain": false,
+                "number": 6
+              },
+              "shots": { "total": 0, "on": 0 },
+              "passes": { "total": 35, "accuracy": "80" },
+              "tackles": { "total": 3, "interceptions": 1 },
+              "dribbles": { "attempts": 1, "success": 0 },
+              "fouls": { "drawn": 0, "committed": 2 },
+              "cards": { "yellow": 1, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 402, "name": "Djed Spence", "photo": "https://media.api-sports.io/football/players/402.png" },
-          "statistics": [{
-            "games": { "position": "D", "rating": "6.2", "minutes": 70, "captain": false, "number": 16 },
-            "shots": { "total": 0, "on": 0 },
-            "passes": { "total": 28, "accuracy": "75" },
-            "tackles": { "total": 2, "interceptions": 0 },
-            "dribbles": { "attempts": 1, "success": 1 },
-            "fouls": { "drawn": 0, "committed": 1 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 402,
+            "name": "Djed Spence",
+            "photo": "https://media.api-sports.io/football/players/402.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "D",
+                "rating": "6.2",
+                "minutes": 70,
+                "captain": false,
+                "number": 16
+              },
+              "shots": { "total": 0, "on": 0 },
+              "passes": { "total": 28, "accuracy": "75" },
+              "tackles": { "total": 2, "interceptions": 0 },
+              "dribbles": { "attempts": 1, "success": 1 },
+              "fouls": { "drawn": 0, "committed": 1 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 403, "name": "Richarlison", "photo": "https://media.api-sports.io/football/players/403.png" },
-          "statistics": [{
-            "games": { "position": "F", "rating": "5.9", "minutes": 70, "captain": false, "number": 9 },
-            "shots": { "total": 2, "on": 0 },
-            "passes": { "total": 18, "accuracy": "72" },
-            "tackles": { "total": 0, "interceptions": 0 },
-            "dribbles": { "attempts": 3, "success": 1 },
-            "fouls": { "drawn": 1, "committed": 1 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 403,
+            "name": "Richarlison",
+            "photo": "https://media.api-sports.io/football/players/403.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "F",
+                "rating": "5.9",
+                "minutes": 70,
+                "captain": false,
+                "number": 9
+              },
+              "shots": { "total": 2, "on": 0 },
+              "passes": { "total": 18, "accuracy": "72" },
+              "tackles": { "total": 0, "interceptions": 0 },
+              "dribbles": { "attempts": 3, "success": 1 },
+              "fouls": { "drawn": 1, "committed": 1 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 404, "name": "Dominic Solanke", "photo": "https://media.api-sports.io/football/players/404.png" },
-          "statistics": [{
-            "games": { "position": "F", "rating": "6.0", "minutes": 70, "captain": false, "number": 19 },
-            "shots": { "total": 1, "on": 0 },
-            "passes": { "total": 15, "accuracy": "68" },
-            "tackles": { "total": 0, "interceptions": 0 },
-            "dribbles": { "attempts": 2, "success": 0 },
-            "fouls": { "drawn": 0, "committed": 0 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 404,
+            "name": "Dominic Solanke",
+            "photo": "https://media.api-sports.io/football/players/404.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "F",
+                "rating": "6.0",
+                "minutes": 70,
+                "captain": false,
+                "number": 19
+              },
+              "shots": { "total": 1, "on": 0 },
+              "passes": { "total": 15, "accuracy": "68" },
+              "tackles": { "total": 0, "interceptions": 0 },
+              "dribbles": { "attempts": 2, "success": 0 },
+              "fouls": { "drawn": 0, "committed": 0 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         },
         {
-          "player": { "id": 405, "name": "Mathys Tel", "photo": "https://media.api-sports.io/football/players/405.png" },
-          "statistics": [{
-            "games": { "position": "F", "rating": "6.3", "minutes": 45, "captain": false, "number": 28 },
-            "shots": { "total": 2, "on": 1 },
-            "passes": { "total": 12, "accuracy": "70" },
-            "tackles": { "total": 0, "interceptions": 0 },
-            "dribbles": { "attempts": 5, "success": 3 },
-            "fouls": { "drawn": 1, "committed": 0 },
-            "cards": { "yellow": 0, "red": 0 }
-          }]
+          "player": {
+            "id": 405,
+            "name": "Mathys Tel",
+            "photo": "https://media.api-sports.io/football/players/405.png"
+          },
+          "statistics": [
+            {
+              "games": {
+                "position": "F",
+                "rating": "6.3",
+                "minutes": 45,
+                "captain": false,
+                "number": 28
+              },
+              "shots": { "total": 2, "on": 1 },
+              "passes": { "total": 12, "accuracy": "70" },
+              "tackles": { "total": 0, "interceptions": 0 },
+              "dribbles": { "attempts": 5, "success": 3 },
+              "fouls": { "drawn": 1, "committed": 0 },
+              "cards": { "yellow": 0, "red": 0 }
+            }
+          ]
         }
       ]
     }

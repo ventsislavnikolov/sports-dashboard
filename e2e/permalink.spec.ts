@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test.describe("Permalink", () => {
   test("direct URL loads the correct fixture", async ({ page }) => {

@@ -1,6 +1,6 @@
-import { describe, it, expect } from "vitest";
-import { sortPlayers } from "../sortPlayers";
+import { describe, expect, it } from "vitest";
 import type { PlayerMatchStat } from "@/api/types";
+import { sortPlayers } from "../sortPlayers";
 
 function makePlayer(
   id: number,
@@ -13,7 +13,13 @@ function makePlayer(
     player: { id, name, photo: "" },
     statistics: [
       {
-        games: { position: "M", rating: "7.0", minutes: 90, captain: false, number: id },
+        games: {
+          position: "M",
+          rating: "7.0",
+          minutes: 90,
+          captain: false,
+          number: id,
+        },
         shots: { total: 0, on: 0 },
         passes: { total: passes, accuracy: "80" },
         tackles: { total: tackles, interceptions: 0 },

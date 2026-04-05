@@ -1,12 +1,12 @@
-import { type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface CardShellProps {
-  title: string;
   children?: ReactNode;
   dataUpdatedAt?: number;
-  isLoading?: boolean;
   error?: Error | null;
+  isLoading?: boolean;
   onRetry?: () => void;
+  title: string;
 }
 
 function TimeAgo({ timestamp }: { timestamp: number }) {
@@ -16,7 +16,7 @@ function TimeAgo({ timestamp }: { timestamp: number }) {
   return (
     <span className="text-[10px] text-text-muted">
       {isStale && (
-        <span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 mr-1" />
+        <span className="mr-1 inline-block h-1.5 w-1.5 rounded-full bg-amber-400" />
       )}
       Updated {seconds}s ago
     </span>
@@ -25,9 +25,9 @@ function TimeAgo({ timestamp }: { timestamp: number }) {
 
 function Skeleton() {
   return (
-    <div className="space-y-3 animate-pulse">
+    <div className="animate-pulse space-y-3">
       {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="h-4 bg-bg-hover rounded w-full" />
+        <div className="h-4 w-full rounded bg-bg-hover" key={i} />
       ))}
     </div>
   );
@@ -42,9 +42,9 @@ export function CardShell({
   onRetry,
 }: CardShellProps) {
   return (
-    <div className="bg-bg-surface rounded-lg p-4">
-      <div className="flex items-center justify-between mb-3">
-        <h3 className="text-[12px] font-bold uppercase tracking-wider text-text-muted">
+    <div className="rounded-lg bg-bg-surface p-4">
+      <div className="mb-3 flex items-center justify-between">
+        <h3 className="font-bold text-[12px] text-text-muted uppercase tracking-wider">
           {title}
         </h3>
         {dataUpdatedAt && <TimeAgo timestamp={dataUpdatedAt} />}
@@ -53,12 +53,12 @@ export function CardShell({
       {isLoading ? (
         <Skeleton />
       ) : error ? (
-        <div className="border border-accent-red/30 rounded p-3 text-center">
-          <p className="text-accent-red text-xs mb-2">Failed to load data</p>
+        <div className="rounded border border-accent-red/30 p-3 text-center">
+          <p className="mb-2 text-accent-red text-xs">Failed to load data</p>
           {onRetry && (
             <button
+              className="text-accent-blue text-xs hover:underline"
               onClick={onRetry}
-              className="text-xs text-accent-blue hover:underline"
             >
               Retry
             </button>

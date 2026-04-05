@@ -20,37 +20,36 @@ function findStat(
 }
 
 export function TeamStatsCard() {
-  const { teams, isLoading, error, dataUpdatedAt, refetch } =
-    useFixtureStats();
+  const { teams, isLoading, error, dataUpdatedAt, refetch } = useFixtureStats();
 
   const home = teams[0];
   const away = teams[1];
 
   return (
     <CardShell
-      title="TEAM STATS"
-      isLoading={isLoading}
-      error={error}
       dataUpdatedAt={dataUpdatedAt}
+      error={error}
+      isLoading={isLoading}
       onRetry={() => void refetch()}
+      title="TEAM STATS"
     >
       {home && away ? (
         <div>
-          <div className="flex justify-between mb-2 text-[10px] font-semibold text-text-muted">
+          <div className="mb-2 flex justify-between font-semibold text-[10px] text-text-muted">
             <span>{home.team.name}</span>
             <span>{away.team.name}</span>
           </div>
           {DISPLAY_STATS.map((statType) => (
             <StatRow
+              awayValue={findStat(away.statistics, statType)}
+              homeValue={findStat(home.statistics, statType)}
               key={statType}
               label={statType}
-              homeValue={findStat(home.statistics, statType)}
-              awayValue={findStat(away.statistics, statType)}
             />
           ))}
         </div>
       ) : (
-        <p className="text-text-muted text-xs text-center py-2">
+        <p className="py-2 text-center text-text-muted text-xs">
           No stats available
         </p>
       )}

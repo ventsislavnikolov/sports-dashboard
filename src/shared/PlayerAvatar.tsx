@@ -21,7 +21,7 @@ export function PlayerAvatar({ name, photo, size = 24 }: PlayerAvatarProps) {
   if (imgError || !photo) {
     return (
       <div
-        className="rounded-full bg-bg-hover flex items-center justify-center text-text-muted font-semibold"
+        className="flex items-center justify-center rounded-full bg-bg-hover font-semibold text-text-muted"
         style={{ width: size, height: size, fontSize: size * 0.4 }}
       >
         {getInitials(name)}
@@ -31,10 +31,10 @@ export function PlayerAvatar({ name, photo, size = 24 }: PlayerAvatarProps) {
 
   return (
     <img
-      src={photo}
       alt={name}
-      onError={() => setImgError(true)}
       className="rounded-full object-cover"
+      onError={() => setImgError(true)}
+      src={photo}
       style={{ width: size, height: size }}
     />
   );

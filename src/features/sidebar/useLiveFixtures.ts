@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
+import { useMemo } from "react";
 import { fetchLiveFixtures } from "@/api/client";
 import type { Fixture } from "@/api/types";
-import { useMemo } from "react";
 
 interface League {
-  id: number;
-  name: string;
   country: string;
+  id: number;
   logo: string;
+  name: string;
 }
 
 export function useLiveFixtures() {

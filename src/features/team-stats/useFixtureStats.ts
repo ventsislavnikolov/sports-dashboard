@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { useStore } from "@tanstack/react-store";
-import { activeFixtureStore } from "@/store/activeFixture";
 import { fetchFixtureStats } from "@/api/client";
+import { activeFixtureStore } from "@/store/activeFixture";
 
 export function useFixtureStats() {
   const fixtureId = useStore(activeFixtureStore, (s) => s.fixtureId);

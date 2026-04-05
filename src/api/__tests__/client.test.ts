@@ -1,5 +1,9 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from "vitest";
-import { fetchLiveFixtures, fetchFixturePlayers, fetchFixtureStats } from "../client";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import {
+  fetchFixturePlayers,
+  fetchFixtureStats,
+  fetchLiveFixtures,
+} from "../client";
 
 const mockFetch = vi.fn();
 globalThis.fetch = mockFetch;
@@ -53,7 +57,7 @@ describe("API client", () => {
       json: () => Promise.resolve({ response: [] }),
     });
 
-    await fetchFixturePlayers(12345);
+    await fetchFixturePlayers(12_345);
 
     expect(mockFetch).toHaveBeenCalledWith(
       "https://v3.football.api-sports.io/fixtures/players?fixture=12345",
@@ -67,7 +71,7 @@ describe("API client", () => {
       json: () => Promise.resolve({ response: [] }),
     });
 
-    await fetchFixtureStats(12345);
+    await fetchFixtureStats(12_345);
 
     expect(mockFetch).toHaveBeenCalledWith(
       "https://v3.football.api-sports.io/fixtures/statistics?fixture=12345",
@@ -82,6 +86,8 @@ describe("API client", () => {
       statusText: "Too Many Requests",
     });
 
-    await expect(fetchLiveFixtures()).rejects.toThrow("API error: 429 Too Many Requests");
+    await expect(fetchLiveFixtures()).rejects.toThrow(
+      "API error: 429 Too Many Requests"
+    );
   });
 });

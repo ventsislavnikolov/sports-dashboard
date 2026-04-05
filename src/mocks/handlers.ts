@@ -1,7 +1,7 @@
-import { http, HttpResponse } from "msw";
-import liveFixtures from "./fixtures/live-fixtures.json";
+import { HttpResponse, http } from "msw";
 import fixturePlayers from "./fixtures/fixture-players.json";
 import fixtureStats from "./fixtures/fixture-stats.json";
+import liveFixtures from "./fixtures/live-fixtures.json";
 
 const BASE_URL = "https://v3.football.api-sports.io";
 

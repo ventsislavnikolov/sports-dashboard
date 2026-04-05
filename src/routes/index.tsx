@@ -12,8 +12,8 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center h-full">
-      <p className="text-text-muted text-sm">
+    <div className="flex h-full items-center justify-center">
+      <p className="text-sm text-text-muted">
         Select a match from the sidebar to view stats
       </p>
     </div>

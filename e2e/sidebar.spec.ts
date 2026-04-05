@@ -1,11 +1,11 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test.describe("Sidebar", () => {
   test("loads and shows live matches grouped by league", async ({ page }) => {
     await page.goto("/");
 
     // Wait for data to load — "Liverpool" comes from MSW-mocked API
-    await expect(page.getByText("Liverpool")).toBeVisible({ timeout: 15000 });
+    await expect(page.getByText("Liverpool")).toBeVisible({ timeout: 15_000 });
 
     await expect(page.getByText("CIRIOLAJI")).toBeVisible();
     await expect(page.getByText("Premier League").first()).toBeVisible();

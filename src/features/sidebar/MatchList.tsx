@@ -1,19 +1,19 @@
-import { MatchItem } from "./MatchItem";
 import type { Fixture } from "@/api/types";
+import { MatchItem } from "./MatchItem";
 
 interface MatchListProps {
-  fixturesByLeague: Record<string, Fixture[]>;
   collapsed: boolean;
-  isLoading: boolean;
   error: Error | null;
+  fixturesByLeague: Record<string, Fixture[]>;
+  isLoading: boolean;
   onRetry: () => void;
 }
 
 function SkeletonRows() {
   return (
-    <div className="space-y-2 px-3 py-2 animate-pulse">
+    <div className="animate-pulse space-y-2 px-3 py-2">
       {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="h-12 bg-bg-hover rounded" />
+        <div className="h-12 rounded bg-bg-hover" key={i} />
       ))}
     </div>
   );
@@ -31,10 +31,10 @@ export function MatchList({
   if (error) {
     return (
       <div className="px-3 py-4 text-center">
-        <p className="text-accent-red text-xs mb-2">Failed to load matches</p>
+        <p className="mb-2 text-accent-red text-xs">Failed to load matches</p>
         <button
+          className="text-accent-blue text-xs hover:underline"
           onClick={onRetry}
-          className="text-xs text-accent-blue hover:underline"
         >
           Retry
         </button>
@@ -57,15 +57,15 @@ export function MatchList({
       {leagueNames.map((leagueName) => (
         <div key={leagueName}>
           {!collapsed && (
-            <div className="px-3 py-1.5 text-[10px] font-semibold text-text-muted uppercase tracking-wider border-b border-bg-hover">
+            <div className="border-bg-hover border-b px-3 py-1.5 font-semibold text-[10px] text-text-muted uppercase tracking-wider">
               {leagueName}
             </div>
           )}
           {(fixturesByLeague[leagueName] ?? []).map((fixture) => (
             <MatchItem
-              key={fixture.fixture.id}
-              fixture={fixture}
               collapsed={collapsed}
+              fixture={fixture}
+              key={fixture.fixture.id}
             />
           ))}
         </div>

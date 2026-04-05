@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 test.describe("Dashboard", () => {
   test("selecting a match shows all cards", async ({ page }) => {
@@ -25,7 +25,10 @@ test.describe("Dashboard", () => {
     await page.goto("/fixture/1001");
     await page.waitForLoadState("networkidle");
 
-    await page.getByRole("button", { name: /Szoboszlai/ }).first().click();
+    await page
+      .getByRole("button", { name: /Szoboszlai/ })
+      .first()
+      .click();
 
     await expect(page.getByText("PLAYER DETAIL")).toBeVisible();
     await expect(page.getByText("Dominik Szoboszlai").first()).toBeVisible();

@@ -1,8 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
-import { useLiveFixtures } from "./useLiveFixtures";
+import { useCallback, useEffect, useState } from "react";
+import type { Fixture } from "@/api/types";
 import { LeagueFilter } from "./LeagueFilter";
 import { MatchList } from "./MatchList";
-import type { Fixture } from "@/api/types";
+import { useLiveFixtures } from "./useLiveFixtures";
 
 const COLLAPSED_KEY = "sidebar-collapsed";
 const COLLAPSE_BREAKPOINT = 1280;
@@ -15,8 +15,7 @@ export function Sidebar() {
 
   const [selectedLeagueId, setSelectedLeagueId] = useState<number | null>(null);
 
-  const { leagues, fixturesByLeague, isLoading, error } =
-    useLiveFixtures();
+  const { leagues, fixturesByLeague, isLoading, error } = useLiveFixtures();
 
   const toggleCollapse = useCallback(() => {
     setCollapsed((prev) => {
@@ -52,35 +51,35 @@ export function Sidebar() {
     <aside
       className={`${
         collapsed ? "w-[60px] min-w-[60px]" : "w-[260px] min-w-[260px]"
-      } bg-bg-surface border-r border-bg-hover overflow-y-auto transition-all duration-200 flex flex-col`}
+      } flex flex-col overflow-y-auto border-bg-hover border-r bg-bg-surface transition-all duration-200`}
     >
-      <div className="flex items-center justify-between p-3 border-b border-bg-hover">
+      <div className="flex items-center justify-between border-bg-hover border-b p-3">
         {!collapsed && (
-          <span className="text-xs font-bold text-text-primary tracking-wide">
+          <span className="font-bold text-text-primary text-xs tracking-wide">
             CIRIOLAJI
           </span>
         )}
         <button
-          onClick={toggleCollapse}
-          className="text-text-muted hover:text-text-primary text-sm"
           aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+          className="text-sm text-text-muted hover:text-text-primary"
+          onClick={toggleCollapse}
         >
           {collapsed ? "»" : "«"}
         </button>
       </div>
 
       <LeagueFilter
-        leagues={leagues}
-        selectedLeagueId={selectedLeagueId}
-        onSelect={setSelectedLeagueId}
         collapsed={collapsed}
+        leagues={leagues}
+        onSelect={setSelectedLeagueId}
+        selectedLeagueId={selectedLeagueId}
       />
 
       <MatchList
-        fixturesByLeague={filteredByLeague}
         collapsed={collapsed}
-        isLoading={isLoading}
         error={error}
+        fixturesByLeague={filteredByLeague}
+        isLoading={isLoading}
         onRetry={() => void 0}
       />
     </aside>

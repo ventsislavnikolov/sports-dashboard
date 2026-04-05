@@ -1,9 +1,9 @@
 import { Store } from "@tanstack/store";
 
 interface ActiveFixtureState {
+  comparedPlayerIds: [number | null, number | null];
   fixtureId: number | null;
   selectedPlayerId: number | null;
-  comparedPlayerIds: [number | null, number | null];
 }
 
 export const activeFixtureStore = new Store<ActiveFixtureState>({

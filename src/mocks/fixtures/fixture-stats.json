@@ -4,7 +4,12 @@
   "errors": {},
   "response": [
     {
-      "team": { "id": 40, "name": "Liverpool", "logo": "https://media.api-sports.io/football/teams/40.png", "winner": true },
+      "team": {
+        "id": 40,
+        "name": "Liverpool",
+        "logo": "https://media.api-sports.io/football/teams/40.png",
+        "winner": true
+      },
       "statistics": [
         { "type": "Shots on Goal", "value": 5 },
         { "type": "Shots off Goal", "value": 3 },
@@ -25,7 +30,12 @@
       ]
     },
     {
-      "team": { "id": 47, "name": "Tottenham", "logo": "https://media.api-sports.io/football/teams/47.png", "winner": false },
+      "team": {
+        "id": 47,
+        "name": "Tottenham",
+        "logo": "https://media.api-sports.io/football/teams/47.png",
+        "winner": false
+      },
       "statistics": [
         { "type": "Shots on Goal", "value": 2 },
         { "type": "Shots off Goal", "value": 2 },

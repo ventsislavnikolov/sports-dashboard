@@ -4,10 +4,10 @@ interface League {
 }
 
 interface LeagueFilterProps {
-  leagues: League[];
-  selectedLeagueId: number | null;
-  onSelect: (leagueId: number | null) => void;
   collapsed: boolean;
+  leagues: League[];
+  onSelect: (leagueId: number | null) => void;
+  selectedLeagueId: number | null;
 }
 
 export function LeagueFilter({
@@ -21,24 +21,24 @@ export function LeagueFilter({
   return (
     <div className="flex flex-wrap gap-1.5 px-3 py-2">
       <button
-        onClick={() => onSelect(null)}
-        className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold transition-colors ${
+        className={`rounded-full px-2.5 py-0.5 font-semibold text-[10px] transition-colors ${
           selectedLeagueId === null
             ? "bg-accent-blue text-bg-primary"
             : "bg-bg-hover text-text-muted hover:text-text-primary"
         }`}
+        onClick={() => onSelect(null)}
       >
         All
       </button>
       {leagues.map((league) => (
         <button
-          key={league.id}
-          onClick={() => onSelect(league.id)}
-          className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold transition-colors ${
+          className={`rounded-full px-2.5 py-0.5 font-semibold text-[10px] transition-colors ${
             selectedLeagueId === league.id
               ? "bg-accent-blue text-bg-primary"
               : "bg-bg-hover text-text-muted hover:text-text-primary"
           }`}
+          key={league.id}
+          onClick={() => onSelect(league.id)}
         >
           {league.name}
         </button>

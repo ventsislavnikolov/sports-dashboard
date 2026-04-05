@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { useStore } from "@tanstack/react-store";
-import { activeFixtureStore } from "@/store/activeFixture";
+import { useMemo } from "react";
 import { fetchFixturePlayers } from "@/api/client";
 import type { PlayerMatchStat } from "@/api/types";
-import { useMemo } from "react";
+import { activeFixtureStore } from "@/store/activeFixture";
 
 export function useFixturePlayers() {
   const fixtureId = useStore(activeFixtureStore, (s) => s.fixtureId);

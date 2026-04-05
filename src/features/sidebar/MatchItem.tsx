@@ -1,13 +1,13 @@
 import { Link } from "@tanstack/react-router";
 import { useStore } from "@tanstack/react-store";
-import { activeFixtureStore } from "@/store/activeFixture";
+import type { Fixture } from "@/api/types";
 import { formatMinute } from "@/shared/formatMinute";
 import { LiveBadge } from "@/shared/LiveBadge";
-import type { Fixture } from "@/api/types";
+import { activeFixtureStore } from "@/store/activeFixture";
 
 interface MatchItemProps {
-  fixture: Fixture;
   collapsed: boolean;
+  fixture: Fixture;
 }
 
 export function MatchItem({ fixture, collapsed }: MatchItemProps) {
@@ -20,15 +20,15 @@ export function MatchItem({ fixture, collapsed }: MatchItemProps) {
   if (collapsed) {
     return (
       <Link
-        to="/fixture/$fixtureId"
-        params={{ fixtureId: String(fixture.fixture.id) }}
         className={`block rounded px-1 py-2 text-center ${
           isActive
-            ? "border-l-2 border-accent-blue bg-bg-hover"
-            : "border-l-2 border-transparent hover:bg-bg-hover"
+            ? "border-accent-blue border-l-2 bg-bg-hover"
+            : "border-transparent border-l-2 hover:bg-bg-hover"
         }`}
+        params={{ fixtureId: String(fixture.fixture.id) }}
+        to="/fixture/$fixtureId"
       >
-        <div className="text-xs font-bold text-text-primary">
+        <div className="font-bold text-text-primary text-xs">
           {fixture.goals.home}–{fixture.goals.away}
         </div>
         <div className="text-[10px] text-accent-green">
@@ -40,24 +40,24 @@ export function MatchItem({ fixture, collapsed }: MatchItemProps) {
 
   return (
     <Link
-      to="/fixture/$fixtureId"
-      params={{ fixtureId: String(fixture.fixture.id) }}
       className={`block rounded px-3 py-2 ${
         isActive
-          ? "border-l-2 border-accent-blue bg-bg-hover"
-          : "border-l-2 border-transparent hover:bg-bg-hover"
+          ? "border-accent-blue border-l-2 bg-bg-hover"
+          : "border-transparent border-l-2 hover:bg-bg-hover"
       }`}
+      params={{ fixtureId: String(fixture.fixture.id) }}
+      to="/fixture/$fixtureId"
     >
       <div className="flex items-center justify-between">
-        <span className="text-xs font-semibold text-text-primary truncate">
+        <span className="truncate font-semibold text-text-primary text-xs">
           {home.name}
         </span>
-        <span className="text-sm font-bold text-text-primary">
+        <span className="font-bold text-sm text-text-primary">
           {fixture.goals.home}–{fixture.goals.away}
         </span>
       </div>
-      <div className="flex items-center justify-between mt-0.5">
-        <span className="text-xs text-text-muted truncate">{away.name}</span>
+      <div className="mt-0.5 flex items-center justify-between">
+        <span className="truncate text-text-muted text-xs">{away.name}</span>
         <div className="flex items-center gap-1">
           <LiveBadge />
           <span className="text-[10px] text-accent-green">

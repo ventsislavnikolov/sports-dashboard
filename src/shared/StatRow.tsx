@@ -1,31 +1,39 @@
 interface StatRowProps {
-  label: string;
-  homeValue: string | number | null;
   awayValue: string | number | null;
+  homeValue: string | number | null;
+  label: string;
 }
 
 export function StatRow({ label, homeValue, awayValue }: StatRowProps) {
   const home = homeValue ?? "—";
   const away = awayValue ?? "—";
 
-  const homeNum = typeof homeValue === "number" ? homeValue : parseFloat(String(homeValue));
-  const awayNum = typeof awayValue === "number" ? awayValue : parseFloat(String(awayValue));
+  const homeNum =
+    typeof homeValue === "number"
+      ? homeValue
+      : Number.parseFloat(String(homeValue));
+  const awayNum =
+    typeof awayValue === "number"
+      ? awayValue
+      : Number.parseFloat(String(awayValue));
 
-  const homeHigher = !isNaN(homeNum) && !isNaN(awayNum) && homeNum > awayNum;
-  const awayHigher = !isNaN(homeNum) && !isNaN(awayNum) && awayNum > homeNum;
+  const homeHigher =
+    !(Number.isNaN(homeNum) || Number.isNaN(awayNum)) && homeNum > awayNum;
+  const awayHigher =
+    !(Number.isNaN(homeNum) || Number.isNaN(awayNum)) && awayNum > homeNum;
 
   return (
     <div className="flex items-center justify-between py-1.5">
       <span
-        className={`text-xs font-semibold w-16 text-right ${homeHigher ? "text-accent-blue" : "text-text-primary"}`}
+        className={`w-16 text-right font-semibold text-xs ${homeHigher ? "text-accent-blue" : "text-text-primary"}`}
       >
         {home}
       </span>
-      <span className="text-[10px] text-text-muted flex-1 text-center">
+      <span className="flex-1 text-center text-[10px] text-text-muted">
         {label}
       </span>
       <span
-        className={`text-xs font-semibold w-16 text-left ${awayHigher ? "text-accent-blue" : "text-text-primary"}`}
+        className={`w-16 text-left font-semibold text-xs ${awayHigher ? "text-accent-blue" : "text-text-primary"}`}
       >
         {away}
       </span>

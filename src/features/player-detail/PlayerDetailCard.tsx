@@ -1,25 +1,25 @@
 import { useStore } from "@tanstack/react-store";
-import { activeFixtureStore } from "@/store/activeFixture";
+import type { PlayerMatchStat } from "@/api/types";
 import { CardShell } from "@/shared/CardShell";
 import { PlayerAvatar } from "@/shared/PlayerAvatar";
-import type { PlayerMatchStat } from "@/api/types";
+import { activeFixtureStore } from "@/store/activeFixture";
 
 interface PlayerDetailCardProps {
   allPlayers: PlayerMatchStat[];
-  isLoading: boolean;
   dataUpdatedAt: number;
+  isLoading: boolean;
 }
 
 function RatingBadge({ rating }: { rating: string | null }) {
   if (!rating) return <span className="text-text-muted text-xs">—</span>;
 
-  const num = parseFloat(rating);
+  const num = Number.parseFloat(rating);
   let colorClass = "text-accent-red";
   if (num >= 7) colorClass = "text-accent-green";
   else if (num >= 6) colorClass = "text-amber-400";
 
   return (
-    <span className={`text-xl font-extrabold ${colorClass}`}>
+    <span className={`font-extrabold text-xl ${colorClass}`}>
       {num.toFixed(1)}
     </span>
   );
@@ -33,7 +33,7 @@ interface StatBoxProps {
 function StatBox({ label, value }: StatBoxProps) {
   return (
     <div className="text-center">
-      <div className="text-lg font-extrabold text-accent-blue">
+      <div className="font-extrabold text-accent-blue text-lg">
         {value ?? "—"}
       </div>
       <div className="text-[10px] text-text-muted">{label}</div>
@@ -56,15 +56,11 @@ export function PlayerDetailCard({
   return (
     <div className="col-span-2">
       <CardShell
-        title="PLAYER DETAIL"
-        isLoading={isLoading}
         dataUpdatedAt={dataUpdatedAt}
+        isLoading={isLoading}
+        title="PLAYER DETAIL"
       >
-        {!player ? (
-          <p className="text-text-muted text-xs text-center py-4">
-            Click a player to see details
-          </p>
-        ) : (
+        {player ? (
           <div className="flex items-start gap-4">
             <div className="flex items-center gap-3">
               <PlayerAvatar
@@ -73,10 +69,10 @@ export function PlayerDetailCard({
                 size={40}
               />
               <div>
-                <div className="text-sm font-bold text-text-primary">
+                <div className="font-bold text-sm text-text-primary">
                   {player.player.name}
                   {player.statistics[0].games.number && (
-                    <span className="text-text-muted ml-1">
+                    <span className="ml-1 text-text-muted">
                       #{player.statistics[0].games.number}
                     </span>
                   )}
@@ -88,16 +84,13 @@ export function PlayerDetailCard({
               </div>
             </div>
 
-            <div className="flex items-center gap-1 ml-2">
+            <div className="ml-2 flex items-center gap-1">
               <RatingBadge rating={player.statistics[0].games.rating} />
               <span className="text-[10px] text-text-muted">Rating</span>
             </div>
 
-            <div className="flex-1 flex items-center justify-evenly">
-              <StatBox
-                label="Shots"
-                value={player.statistics[0].shots.total}
-              />
+            <div className="flex flex-1 items-center justify-evenly">
+              <StatBox label="Shots" value={player.statistics[0].shots.total} />
               <StatBox
                 label="Passes"
                 value={player.statistics[0].passes.total}
@@ -124,6 +117,10 @@ export function PlayerDetailCard({
               />
             </div>
           </div>
+        ) : (
+          <p className="py-4 text-center text-text-muted text-xs">
+            Click a player to see details
+          </p>
         )}
       </CardShell>
     </div>

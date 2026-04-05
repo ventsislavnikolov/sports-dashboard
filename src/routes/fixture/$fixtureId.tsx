@@ -1,15 +1,15 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect } from "react";
 import { useStore } from "@tanstack/react-store";
-import { activeFixtureStore, setFixtureId } from "@/store/activeFixture";
-import { useLiveFixtures } from "@/features/sidebar/useLiveFixtures";
-import { useFixturePlayers } from "@/features/match-cards/useFixturePlayers";
+import { useEffect } from "react";
 import { TopLeaderboardCard } from "@/features/match-cards/TopLeaderboardCard";
-import { TeamStatsCard } from "@/features/team-stats/TeamStatsCard";
+import { useFixturePlayers } from "@/features/match-cards/useFixturePlayers";
 import { PlayerDetailCard } from "@/features/player-detail/PlayerDetailCard";
 import { ShotCompareCard } from "@/features/shot-compare/ShotCompareCard";
-import { LiveBadge } from "@/shared/LiveBadge";
+import { useLiveFixtures } from "@/features/sidebar/useLiveFixtures";
+import { TeamStatsCard } from "@/features/team-stats/TeamStatsCard";
 import { formatMinute } from "@/shared/formatMinute";
+import { LiveBadge } from "@/shared/LiveBadge";
+import { activeFixtureStore, setFixtureId } from "@/store/activeFixture";
 
 export const Route = createFileRoute("/fixture/$fixtureId")({
   component: FixturePage,
@@ -26,18 +26,18 @@ function MatchHeader() {
   const { elapsed, short: statusShort } = fixture.fixture.status;
 
   return (
-    <div className="bg-bg-surface border-b border-bg-hover px-4 py-3 flex items-center justify-center gap-4 sticky top-0 z-10">
-      <span className="text-sm font-semibold text-text-primary">
+    <div className="sticky top-0 z-10 flex items-center justify-center gap-4 border-bg-hover border-b bg-bg-surface px-4 py-3">
+      <span className="font-semibold text-sm text-text-primary">
         {home.name}
       </span>
-      <span className="text-xl font-extrabold text-text-primary">
+      <span className="font-extrabold text-text-primary text-xl">
         {fixture.goals.home} – {fixture.goals.away}
       </span>
-      <span className="text-sm font-semibold text-text-primary">
+      <span className="font-semibold text-sm text-text-primary">
         {away.name}
       </span>
       <LiveBadge />
-      <span className="text-xs text-text-muted">
+      <span className="text-text-muted text-xs">
         {formatMinute(elapsed, statusShort)}
       </span>
       <span className="text-[10px] text-text-muted">
@@ -52,7 +52,7 @@ function FixturePage() {
   const numericId = Number(fixtureId);
 
   useEffect(() => {
-    if (!isNaN(numericId)) {
+    if (!Number.isNaN(numericId)) {
       setFixtureId(numericId);
     }
   }, [numericId]);
@@ -66,42 +66,42 @@ function FixturePage() {
       <div className="flex-1 overflow-y-auto p-3.5">
         <div className="grid grid-cols-2 gap-3.5">
           <TopLeaderboardCard
-            title="TOP 5 — PASSES"
+            allPlayers={allPlayers}
+            dataUpdatedAt={dataUpdatedAt}
+            error={error}
+            isLoading={isLoading}
+            onRetry={() => void refetch()}
             stat="passes"
-            allPlayers={allPlayers}
-            isLoading={isLoading}
-            error={error}
-            dataUpdatedAt={dataUpdatedAt}
-            onRetry={() => void refetch()}
+            title="TOP 5 — PASSES"
           />
           <TopLeaderboardCard
-            title="TOP 5 — TACKLES"
+            allPlayers={allPlayers}
+            dataUpdatedAt={dataUpdatedAt}
+            error={error}
+            isLoading={isLoading}
+            onRetry={() => void refetch()}
             stat="tackles"
-            allPlayers={allPlayers}
-            isLoading={isLoading}
-            error={error}
-            dataUpdatedAt={dataUpdatedAt}
-            onRetry={() => void refetch()}
+            title="TOP 5 — TACKLES"
           />
           <TopLeaderboardCard
-            title="TOP 5 — DRIBBLE ATTEMPTS"
-            stat="dribbles"
             allPlayers={allPlayers}
-            isLoading={isLoading}
-            error={error}
             dataUpdatedAt={dataUpdatedAt}
+            error={error}
+            isLoading={isLoading}
             onRetry={() => void refetch()}
+            stat="dribbles"
+            title="TOP 5 — DRIBBLE ATTEMPTS"
           />
           <TeamStatsCard />
           <ShotCompareCard
             allPlayers={allPlayers}
-            isLoading={isLoading}
             dataUpdatedAt={dataUpdatedAt}
+            isLoading={isLoading}
           />
           <PlayerDetailCard
             allPlayers={allPlayers}
-            isLoading={isLoading}
             dataUpdatedAt={dataUpdatedAt}
+            isLoading={isLoading}
           />
         </div>
       </div>

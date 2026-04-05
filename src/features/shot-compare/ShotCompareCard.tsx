@@ -1,20 +1,20 @@
 import { useStore } from "@tanstack/react-store";
-import { activeFixtureStore } from "@/store/activeFixture";
-import { CardShell } from "@/shared/CardShell";
 import {
-  BarChart,
   Bar,
+  BarChart,
+  Cell,
+  ResponsiveContainer,
   XAxis,
   YAxis,
-  ResponsiveContainer,
-  Cell,
 } from "recharts";
 import type { PlayerMatchStat } from "@/api/types";
+import { CardShell } from "@/shared/CardShell";
+import { activeFixtureStore } from "@/store/activeFixture";
 
 interface ShotCompareCardProps {
   allPlayers: PlayerMatchStat[];
-  isLoading: boolean;
   dataUpdatedAt: number;
+  isLoading: boolean;
 }
 
 export function ShotCompareCard({
@@ -41,29 +41,29 @@ export function ShotCompareCard({
 
   return (
     <CardShell
-      title="SHOT COMPARE"
-      isLoading={isLoading}
       dataUpdatedAt={dataUpdatedAt}
+      isLoading={isLoading}
+      title="SHOT COMPARE"
     >
       {players.length < 2 ? (
-        <p className="text-text-muted text-xs text-center py-4">
+        <p className="py-4 text-center text-text-muted text-xs">
           Click two players from the leaderboards to compare shots
         </p>
       ) : (
-        <ResponsiveContainer width="100%" height={100}>
-          <BarChart data={chartData} layout="vertical" barSize={16}>
-            <XAxis type="number" hide />
+        <ResponsiveContainer height={100} width="100%">
+          <BarChart barSize={16} data={chartData} layout="vertical">
+            <XAxis hide type="number" />
             <YAxis
-              type="category"
-              dataKey="name"
-              width={100}
-              tick={{ fill: "#E6EDF3", fontSize: 11 }}
               axisLine={false}
+              dataKey="name"
+              tick={{ fill: "#E6EDF3", fontSize: 11 }}
               tickLine={false}
+              type="category"
+              width={100}
             />
             <Bar dataKey="shots" radius={[0, 4, 4, 0]}>
               {chartData.map((_, index) => (
-                <Cell key={index} fill={colors[index % colors.length]} />
+                <Cell fill={colors[index % colors.length]} key={index} />
               ))}
             </Bar>
           </BarChart>

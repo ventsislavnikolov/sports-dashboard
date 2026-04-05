@@ -1,13 +1,13 @@
 export interface Team {
   id: number;
-  name: string;
   logo: string;
+  name: string;
   winner: boolean | null;
 }
 
 export interface Score {
-  home: number | null;
   away: number | null;
+  home: number | null;
 }
 
 export interface Fixture {
@@ -16,15 +16,15 @@ export interface Fixture {
     status: { elapsed: number | null; short: string; long: string };
     venue: { name: string; city: string };
   };
+  goals: { home: number | null; away: number | null };
   league: {
     id: number;
     name: string;
     country: string;
     logo: string;
   };
-  teams: { home: Team; away: Team };
-  goals: { home: number | null; away: number | null };
   score: { halftime: Score; fulltime: Score };
+  teams: { home: Team; away: Team };
 }
 
 export interface PlayerMatchStat {
@@ -49,8 +49,8 @@ export interface PlayerMatchStat {
 }
 
 export interface FixturePlayersResponse {
-  team: Team;
   players: PlayerMatchStat[];
+  team: Team;
 }
 
 export interface TeamStatistic {
@@ -59,13 +59,13 @@ export interface TeamStatistic {
 }
 
 export interface TeamMatchStats {
-  team: Team;
   statistics: TeamStatistic[];
+  team: Team;
 }
 
 export interface ApiResponse<T> {
-  get: string;
-  results: number;
   errors: Record<string, string>;
+  get: string;
   response: T;
+  results: number;
 }
