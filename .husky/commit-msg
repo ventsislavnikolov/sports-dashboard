@@ -1,1 +1,1 @@
-pnpm commitlint --edit "this"
+pnpm commitlint --edit "$1"
