@@ -50,3 +50,8 @@ coverage/e2e-report/
 .env.production
 .vercel
 .env*.local
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault
