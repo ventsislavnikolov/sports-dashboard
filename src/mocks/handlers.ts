@@ -14,11 +14,11 @@ export const handlers = [
     return HttpResponse.json({ response: [] });
   }),
 
-  http.get(`${BASE_URL}/fixtures/players`, () => {
-    return HttpResponse.json(fixturePlayers);
-  }),
+  http.get(`${BASE_URL}/fixtures/players`, () =>
+    HttpResponse.json(fixturePlayers)
+  ),
 
-  http.get(`${BASE_URL}/fixtures/statistics`, () => {
-    return HttpResponse.json(fixtureStats);
-  }),
+  http.get(`${BASE_URL}/fixtures/statistics`, () =>
+    HttpResponse.json(fixtureStats)
+  ),
 ];

@@ -17,9 +17,9 @@ import liveFixturesData from "@/mocks/fixtures/live-fixtures.json";
 import { useLiveFixtures } from "../useLiveFixtures";
 
 const server = setupServer(
-  http.get("https://v3.football.api-sports.io/fixtures", () => {
-    return HttpResponse.json(liveFixturesData);
-  })
+  http.get("https://v3.football.api-sports.io/fixtures", () =>
+    HttpResponse.json(liveFixturesData)
+  )
 );
 
 beforeAll(() => {

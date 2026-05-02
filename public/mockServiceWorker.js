@@ -7,7 +7,7 @@
  * - Please do NOT modify this file.
  */
 
-const PACKAGE_VERSION = "2.12.14";
+const PACKAGE_VERSION = "2.14.2";
 const INTEGRITY_CHECKSUM = "4db4a41e972cec1b64cc569c66952d82";
 const IS_MOCKED_RESPONSE = Symbol("isMockedResponse");
 const activeClientIds = new Set();
@@ -74,9 +74,9 @@ addEventListener("message", async (event) => {
     case "CLIENT_CLOSED": {
       activeClientIds.delete(clientId);
 
-      const remainingClients = allClients.filter((client) => {
-        return client.id !== clientId;
-      });
+      const remainingClients = allClients.filter(
+        (client) => client.id !== clientId
+      );
 
       // Unregister itself when there are no more clients
       if (remainingClients.length === 0) {
