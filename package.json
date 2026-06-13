@@ -83,5 +83,9 @@
     "workerDirectory": [
       "public"
     ]
+  },
+  "packageManager": "pnpm@11.5.2",
+  "engines": {
+    "node": ">=26.3.0"
   }
 }
