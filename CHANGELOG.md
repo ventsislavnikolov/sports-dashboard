@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/ventsislavnikolov/sports-dashboard/compare/v1.0.0...v1.0.1) (2026-06-13)
+
+
+### Bug Fixes
+
+* **deploy:** set engines.node >=24 for Vercel (max 24.x) ([886875b](https://github.com/ventsislavnikolov/sports-dashboard/commit/886875b0d86dba3b32858eea577901aad73ec691))
+
 # 1.0.0 (2026-06-13)
 
 
