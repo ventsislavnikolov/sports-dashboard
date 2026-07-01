@@ -3,20 +3,20 @@
   <head>
     <meta charset="UTF-8">
     <meta
-      http-equiv="Cache-Control"
       content="no-cache, no-store, must-revalidate"
+      http-equiv="Cache-Control"
     >
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
-    <link rel="icon" type="image/png" href="/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="no-cache" http-equiv="Pragma">
+    <meta content="0" http-equiv="Expires">
+    <link href="/favicon.ico" rel="icon" type="image/png">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>sports-dashboard</title>
     <!-- Preconnect to Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
     <!-- Performance optimizations -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="//fonts.googleapis.com" rel="dns-prefetch">
+    <link href="//fonts.gstatic.com" rel="dns-prefetch">
   </head>
   <body>
     <div id="root">
@@ -40,22 +40,22 @@
         style="display:flex;align-items:center;justify-content:center;height:100vh"
       >
         <svg
+          aria-label="Loading"
           class="loader-spinner"
-          width="16"
-          height="16"
-          viewBox="0 0 24 24"
           fill="none"
+          height="16"
+          role="status"
           stroke="currentColor"
-          stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          role="status"
-          aria-label="Loading"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          width="16"
         >
           <path d="M21 12a9 9 0 1 1-6.219-8.56" />
         </svg>
       </div>
     </div>
-    <script type="module" src="/src/main.tsx"></script>
+    <script src="/src/main.tsx" type="module"></script>
   </body>
 </html>

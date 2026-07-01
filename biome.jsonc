@@ -4,7 +4,7 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true,
+      "preset": "recommended",
       "a11y": {
         "useButtonType": "off",
         "noSvgWithoutTitle": "off",
@@ -26,13 +26,7 @@
         "useSingleJsDocAsterisk": "off",
         "noNestedComponentDefinitions": "off"
       },
-      "nursery": {
-        "noShadow": "off",
-        "noLeakedRender": "off",
-        "noEqualsToNull": "off",
-        "noIncrementDecrement": "off",
-        "noUnnecessaryConditions": "off"
-      },
+      "nursery": {},
       "performance": {
         "noBarrelFile": "off",
         "noImgElement": "off",
@@ -52,7 +46,8 @@
         "useDefaultSwitchClause": "off",
         "useFilenamingConvention": "off",
         "useUnifiedTypeSignatures": "off",
-        "useConsistentTypeDefinitions": "off"
+        "useConsistentTypeDefinitions": "off",
+        "noIncrementDecrement": "off"
       },
       "suspicious": {
         "noAlert": "off",
@@ -67,7 +62,11 @@
         "noBitwiseOperators": "off",
         "noEmptyBlockStatements": "off",
         "noShadowRestrictedNames": "off",
-        "noTemplateCurlyInString": "off"
+        "noTemplateCurlyInString": "off",
+        "noShadow": "off",
+        "noLeakedRender": "off",
+        "noEqualsToNull": "off",
+        "noUnnecessaryConditions": "off"
       }
     }
   },
